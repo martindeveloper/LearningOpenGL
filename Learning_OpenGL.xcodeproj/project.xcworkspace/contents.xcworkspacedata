@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:OpenGl_OpenCL_Test.xcodeproj">
+      location = "self:Learning_OpenGL.xcodeproj">
    </FileRef>
 </Workspace>

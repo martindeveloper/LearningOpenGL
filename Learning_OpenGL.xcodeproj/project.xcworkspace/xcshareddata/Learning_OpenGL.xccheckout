@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C2799253-2C7B-4FD4-B93E-0A84BA47E622</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Learning_OpenGL</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>15AB069E5C25A341730BB8E5A14E8E6D619382B6</key>
+		<string>github.com:martindeveloper/LearningOpenGL.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Learning_OpenGL.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>15AB069E5C25A341730BB8E5A14E8E6D619382B6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:martindeveloper/LearningOpenGL.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>15AB069E5C25A341730BB8E5A14E8E6D619382B6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>15AB069E5C25A341730BB8E5A14E8E6D619382B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OpenGl_OpenCL_Test</string>
+		</dict>
+	</array>
+</dict>
+</plist>
