@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef __OpenGl_OpenCL_Test__TriangleEntity__
-#define __OpenGl_OpenCL_Test__TriangleEntity__
+#ifndef __Learning_OpenGL__TriangleEntity__
+#define __Learning_OpenGL__TriangleEntity__
 
 #include "Headers.h"
 #include "Entity.h"
@@ -28,4 +28,4 @@ namespace Entities {
 }
 }
 
-#endif /* defined(__OpenGl_OpenCL_Test__TriangleEntity__) */
+#endif /* defined(__Learning_OpenGL__TriangleEntity__) */

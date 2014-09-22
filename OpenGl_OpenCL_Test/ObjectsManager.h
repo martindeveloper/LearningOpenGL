@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef __OpenGl_OpenCL_Test__GameObjectsManager__
-#define __OpenGl_OpenCL_Test__GameObjectsManager__
+#ifndef __Learning_OpenGL__GameObjectsManager__
+#define __Learning_OpenGL__GameObjectsManager__
 
 #include "Headers.h"
 #include "Entity.h"
@@ -26,4 +26,4 @@ public:
 };
 }
 
-#endif /* defined(__OpenGl_OpenCL_Test__GameObjectsManager__) */
+#endif /* defined(__Learning_OpenGL__GameObjectsManager__) */

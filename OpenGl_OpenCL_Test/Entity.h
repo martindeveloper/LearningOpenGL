@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef __OpenGl_OpenCL_Test__Entity__
-#define __OpenGl_OpenCL_Test__Entity__
+#ifndef __Learning_OpenGL__Entity__
+#define __Learning_OpenGL__Entity__
 
 namespace Engine {
 class Entity {
@@ -18,4 +18,4 @@ public:
 };
 }
 
-#endif /* defined(__OpenGl_OpenCL_Test__Entity__) */
+#endif /* defined(__Learning_OpenGL__Entity__) */

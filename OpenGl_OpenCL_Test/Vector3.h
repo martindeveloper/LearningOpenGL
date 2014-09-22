@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef __OpenGl_OpenCL_Test__Vector3__
-#define __OpenGl_OpenCL_Test__Vector3__
+#ifndef __Learning_OpenGL__Vector3__
+#define __Learning_OpenGL__Vector3__
 
 namespace Engine {
 namespace Math {
@@ -21,4 +21,4 @@ namespace Math {
 }
 }
 
-#endif /* defined(__OpenGl_OpenCL_Test__Vector3__) */
+#endif /* defined(__Learning_OpenGL__Vector3__) */

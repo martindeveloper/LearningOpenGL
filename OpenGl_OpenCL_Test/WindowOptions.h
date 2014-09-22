@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef __OpenGl_OpenCL_Test__WindowOptions__
-#define __OpenGl_OpenCL_Test__WindowOptions__
+#ifndef __Learning_OpenGL__WindowOptions__
+#define __Learning_OpenGL__WindowOptions__
 
 #include "Headers.h"
 
@@ -23,4 +23,4 @@ public:
 };
 }
 
-#endif /* defined(__OpenGl_OpenCL_Test__WindowOptions__) */
+#endif /* defined(__Learning_OpenGL__WindowOptions__) */

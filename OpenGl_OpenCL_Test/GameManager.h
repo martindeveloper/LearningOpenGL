@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef OpenGl_OpenCL_Test_SDL_h
-#define OpenGl_OpenCL_Test_SDL_h
+#ifndef __Learning_OpenGL_GameManager_h__
+#define __Learning_OpenGL_GameManager_h__
 
 #include "Headers.h"
 #include "ObjectsManager.h"

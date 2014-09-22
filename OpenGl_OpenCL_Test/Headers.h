@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
-#ifndef OpenGl_OpenCL_Test_Headers_h
-#define OpenGl_OpenCL_Test_Headers_h
+#ifndef __Learning_OpenGL_Headers_h__
+#define __Learning_OpenGL_Headers_h__
 
 #include <stdint.h>
 #include <cstdlib>
