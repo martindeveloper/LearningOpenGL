@@ -10,5 +10,5 @@
 
 Engine::WindowOptions::~WindowOptions()
 {
-    free(Title);
+    delete Title;
 };

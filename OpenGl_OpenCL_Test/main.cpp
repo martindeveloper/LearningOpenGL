@@ -19,8 +19,7 @@ int main(int argc, const char* argv[])
     options->Width = 640;
     options->Height = 480;
 
-    //TODO: Refactor to std::string
-    options->Title = "Testing";
+    options->Title = new std::string("Testing");
 
     Engine::ObjectsManager* manager = new Engine::ObjectsManager();
 

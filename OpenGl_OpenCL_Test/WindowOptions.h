@@ -16,7 +16,7 @@ struct WindowOptions {
 public:
     float Width;
     float Height;
-    char* Title;
+    std::string* Title;
     uint32_t Flags = -1;
 
     ~WindowOptions();

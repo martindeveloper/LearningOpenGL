@@ -69,7 +69,7 @@ bool Engine::GameManager::Initialize(WindowOptions* options)
         options->Flags = SDL_WINDOW_OPENGL;
     }
 
-    Window = SDL_CreateWindow(options->Title, SDL_WINDOWPOS_UNDEFINED,
+    Window = SDL_CreateWindow(options->Title->c_str(), SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED, options->Width,
                               options->Height, options->Flags);
 
