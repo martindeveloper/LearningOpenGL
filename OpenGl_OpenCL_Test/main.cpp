@@ -23,13 +23,13 @@ int main(int argc, const char* argv[])
 
     Engine::ObjectsManager* manager = new Engine::ObjectsManager();
 
-    //entities
+    // Game entities
     Engine::Entity* triangle = new Game::Entities::TriangleEntity();
 
     manager->Add(triangle);
 
     Engine::GameManager* game = new Engine::GameManager();
-    game->Initialize(options);
+    game->CreateWindowAndContext(options);
     game->SetObjectsManager(manager);
     game->StartUpdateLoop();
 

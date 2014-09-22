@@ -40,6 +40,7 @@ void Engine::GameManager::WriteError(char* extra = NULL)
         return;
     }
 
+    // TODO: Use std::string
     const char* sdlError = SDL_GetError();
     char* temp = (char*)malloc(strlen(sdlError) + strlen(extra) + 1);
 
@@ -51,7 +52,7 @@ void Engine::GameManager::WriteError(char* extra = NULL)
     LastError = temp;
 }
 
-bool Engine::GameManager::Initialize(WindowOptions* options)
+bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         WriteError();
@@ -74,6 +75,9 @@ bool Engine::GameManager::Initialize(WindowOptions* options)
                               options->Height, options->Flags);
 
     if (Window == NULL) {
+        WriteError();
+
+        return false;
     }
 
     Context = SDL_GL_CreateContext(Window);
@@ -83,13 +87,15 @@ bool Engine::GameManager::Initialize(WindowOptions* options)
 
 void Engine::GameManager::StartUpdateLoop()
 {
+    IsUpdateKillPending = false;
+
     while (!IsUpdateKillPending) {
         SDL_Event event;
 
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
             case SDL_KEYDOWN:
-                //Input system
+                // TODO: Input system
                 break;
             case SDL_QUIT:
                 IsUpdateKillPending = true;
@@ -97,13 +103,18 @@ void Engine::GameManager::StartUpdateLoop()
             }
         }
 
-        glClearColor(255.0f, 0, 0, 1.0f);
+        glClearColor(0, 0, 0, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
         TimeNow = SDL_GetTicks();
         int delta = TimeNow - TimePast;
+
+        if (TimePast == 0) {
+            delta = 1;
+        }
+
         TimePast = TimeNow;
 
         GameObjectsManager->DispatchUpdateEvent(delta);

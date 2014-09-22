@@ -25,14 +25,14 @@ private:
     void WriteError(char* extra);
     bool IsUpdateKillPending = false;
 
-    int TimeNow;
-    int TimePast;
+    int TimeNow = 0;
+    int TimePast = 0;
 
 public:
     GameManager();
     ~GameManager();
 
-    bool Initialize(WindowOptions* options);
+    bool CreateWindowAndContext(WindowOptions* options);
     void StartUpdateLoop();
     void StopUpdateLoop();
     void SetObjectsManager(ObjectsManager* manager);
