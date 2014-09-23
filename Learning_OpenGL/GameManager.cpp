@@ -8,7 +8,10 @@
 
 #include "GameManager.h"
 
-Engine::GameManager::GameManager(void) { LastError = (char*)malloc(sizeof(char)); };
+Engine::GameManager::GameManager(void)
+{
+    LastError = new std::string("");
+};
 
 Engine::GameManager::~GameManager()
 {
@@ -16,8 +19,7 @@ Engine::GameManager::~GameManager()
 
     delete Options;
     delete GameObjectsManager;
-
-    free(LastError);
+    delete LastError;
 }
 
 void Engine::GameManager::SetObjectsManager(Engine::ObjectsManager* manager)
@@ -31,25 +33,16 @@ void Engine::GameManager::SetObjectsManager(Engine::ObjectsManager* manager)
 
 void Engine::GameManager::WriteError(char* extra = NULL)
 {
-    if (strlen(LastError) != 0) {
-        free(LastError);
-    }
+    delete LastError;
 
     if (extra == NULL) {
-        strcpy(LastError, SDL_GetError());
+        LastError->assign(SDL_GetError());
         return;
     }
 
-    // TODO: Use std::string
-    const char* sdlError = SDL_GetError();
-    char* temp = (char*)malloc(strlen(sdlError) + strlen(extra) + 1);
-
-    if (temp != NULL) {
-        strcpy(temp, sdlError);
-        strcat(temp, extra);
-    }
-
-    LastError = temp;
+    LastError = new std::string(extra);
+    LastError->append(" ");
+    LastError->append(SDL_GetError());
 }
 
 bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)

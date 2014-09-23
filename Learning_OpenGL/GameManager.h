@@ -20,7 +20,7 @@ private:
     SDL_Window* Window;
     SDL_GLContext Context;
     ObjectsManager* GameObjectsManager = NULL;
-    char* LastError;
+    std::string* LastError;
 
     void WriteError(char* extra);
     bool IsUpdateKillPending = false;
