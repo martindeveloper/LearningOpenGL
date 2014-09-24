@@ -13,7 +13,7 @@
 #include "Entity.h"
 #include "TriangleEntity.h"
 
-int main(int argc, const char* argv[])
+int main(int argc, char* argv[])
 {
     Engine::WindowOptions* options = new Engine::WindowOptions();
     options->Width = 640;

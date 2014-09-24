@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Martin Pernica. All rights reserved.
 //
 
+#pragma once
 #ifndef __Learning_OpenGL_Headers_h__
 #define __Learning_OpenGL_Headers_h__
 
@@ -14,8 +15,17 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <SDL.h>
+#include <SDL_opengl.h>
+#endif
+
+#ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
+#endif
 
 #endif
