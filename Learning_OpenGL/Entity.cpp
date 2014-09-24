@@ -8,6 +8,10 @@
 
 #include "Entity.h"
 
+Engine::Entity::~Entity()
+{
+}
+
 void Engine::Entity::OnCreate()
 {
 }

@@ -12,6 +12,7 @@
 namespace Engine {
 class Entity {
 public:
+	virtual ~Entity();
     void virtual OnCreate();
     void virtual OnUpdate(int delta);
     void virtual OnDestroy();
