@@ -24,9 +24,7 @@ Engine::GameManager::~GameManager()
 
 void Engine::GameManager::SetObjectsManager(Engine::ObjectsManager* manager)
 {
-    if (GameObjectsManager != NULL) {
-        delete GameObjectsManager;
-    }
+    delete GameObjectsManager;
 
     GameObjectsManager = manager;
 }
