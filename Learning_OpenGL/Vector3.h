@@ -12,10 +12,12 @@
 namespace Engine {
 namespace Math {
     struct Vector3 {
+    public:
+        Vector3();
+
         float X;
         float Y;
         float Z;
-
         Vector3 operator+(const float add);
     };
 }

@@ -34,7 +34,7 @@ void Engine::GameManager::WriteError(char* extra = NULL)
     delete LastError;
 
     if (extra == NULL) {
-        LastError->assign(SDL_GetError());
+        LastError = new std::string(SDL_GetError());
         return;
     }
 
@@ -45,6 +45,7 @@ void Engine::GameManager::WriteError(char* extra = NULL)
 
 bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
 {
+    //TODO: Use exceptions
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         WriteError();
 
@@ -71,14 +72,28 @@ bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
         return false;
     }
 
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+
     Context = SDL_GL_CreateContext(Window);
 
     return true;
 };
 
+void Engine::GameManager::CreateBuffers()
+{
+    // Vertex buffer
+    glGenBuffers(1, &VertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, VertexBufferSize, NULL, GL_DYNAMIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
 void Engine::GameManager::StartUpdateLoop()
 {
     IsUpdateKillPending = false;
+
+    GameObjectsManager->DispatchCreateEvent();
 
     while (!IsUpdateKillPending) {
         SDL_Event event;
@@ -94,7 +109,7 @@ void Engine::GameManager::StartUpdateLoop()
             }
         }
 
-        glClearColor(0, 0, 0, 1.0f);
+        glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -110,7 +125,10 @@ void Engine::GameManager::StartUpdateLoop()
 
         GameObjectsManager->DispatchUpdateEvent(delta);
 
-        SDL_GL_SwapWindow(Window);
+        //TODO fixed update
+        GameObjectsManager->DispatchDrawEvent(VertexBuffer);
+
+        //SDL_GL_SwapWindow(Window);
     }
 }
 

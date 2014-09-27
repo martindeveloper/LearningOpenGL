@@ -22,6 +22,11 @@ private:
     ObjectsManager* GameObjectsManager = NULL;
     std::string* LastError;
 
+    //Buffers
+    const float VertexBufferSize = 128 * 100 * 100;
+    GLuint VertexBuffer = 0;
+    GLuint VertexArrayID;
+
     void WriteError(char* extra);
     bool IsUpdateKillPending = false;
 
@@ -33,6 +38,7 @@ public:
     ~GameManager();
 
     bool CreateWindowAndContext(WindowOptions* options);
+    void CreateBuffers();
     void StartUpdateLoop();
     void StopUpdateLoop();
     void SetObjectsManager(ObjectsManager* manager);

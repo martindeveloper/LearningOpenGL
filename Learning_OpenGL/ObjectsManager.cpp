@@ -21,7 +21,6 @@ Engine::ObjectsManager::ObjectsManager()
 
 void Engine::ObjectsManager::Add(Entity* entity)
 {
-    entity->OnCreate();
     List->push_back(entity);
 };
 
@@ -37,10 +36,26 @@ void Engine::ObjectsManager::RemoveAll()
     List->clear();
 };
 
+void Engine::ObjectsManager::DispatchCreateEvent()
+{
+    for (int i = 0; i < List->size(); i++) {
+        Entity* entity = List->at(i);
+        entity->OnCreate();
+    }
+};
+
 void Engine::ObjectsManager::DispatchUpdateEvent(int delta)
 {
     for (int i = 0; i < List->size(); i++) {
         Entity* entity = List->at(i);
         entity->OnUpdate(delta);
+    }
+};
+
+void Engine::ObjectsManager::DispatchDrawEvent(GLuint vertexBuffer)
+{
+    for (int i = 0; i < List->size(); i++) {
+        Entity* entity = List->at(i);
+        entity->OnDraw(vertexBuffer);
     }
 };

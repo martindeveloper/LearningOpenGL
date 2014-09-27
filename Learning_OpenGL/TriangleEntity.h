@@ -12,18 +12,21 @@
 #include "Headers.h"
 #include "Entity.h"
 #include "Vector3.h"
+#include "Shader.h"
 
 namespace Game {
 
 namespace Entities {
     class TriangleEntity : public Engine::Entity {
-    private:
-        Engine::Math::Vector3* Position;
-
     public:
         void virtual OnCreate();
         void virtual OnUpdate(int delta);
+        void virtual OnDraw(GLuint vertexBuffer);
         void virtual OnDestroy();
+
+    private:
+        GLfloat VertexData[9] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        Engine::Shader* Shader;
     };
 }
 }

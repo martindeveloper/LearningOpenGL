@@ -9,12 +9,19 @@
 #ifndef __Learning_OpenGL__Entity__
 #define __Learning_OpenGL__Entity__
 
+#include "Headers.h"
+#include "Transform.h"
+
 namespace Engine {
 class Entity {
 public:
-	virtual ~Entity();
+    Engine::Components::Transform* Transform;
+
+    Entity();
+    ~Entity();
     void virtual OnCreate();
     void virtual OnUpdate(int delta);
+    void virtual OnDraw(GLuint vertexBuffer);
     void virtual OnDestroy();
 };
 }

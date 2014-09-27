@@ -23,6 +23,8 @@ public:
     void Add(Entity* entity);
     void RemoveAll();
     void DispatchUpdateEvent(int delta);
+    void DispatchDrawEvent(GLuint vertexBuffer);
+    void DispatchCreateEvent();
 };
 }
 

@@ -30,6 +30,7 @@ int main(int argc, char* argv[])
 
     Engine::GameManager* game = new Engine::GameManager();
     game->CreateWindowAndContext(options);
+    game->CreateBuffers();
     game->SetObjectsManager(manager);
     game->StartUpdateLoop();
 
