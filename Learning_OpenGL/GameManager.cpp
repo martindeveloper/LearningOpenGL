@@ -16,6 +16,7 @@ Engine::GameManager::GameManager(void)
 
 Engine::GameManager::~GameManager()
 {
+    SDL_DestroyWindow(Window);
     SDL_GL_DeleteContext(Context);
     SDL_Quit();
 

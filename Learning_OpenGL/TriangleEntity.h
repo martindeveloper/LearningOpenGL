@@ -28,6 +28,7 @@ namespace Entities {
     private:
         GLfloat* VertexData;
         Engine::Shader* Shader;
+        bool IsIncreasing = true;
     };
 }
 }
