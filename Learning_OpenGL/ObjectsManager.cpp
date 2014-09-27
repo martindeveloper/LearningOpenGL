@@ -11,6 +11,7 @@
 Engine::ObjectsManager::~ObjectsManager()
 {
     RemoveAll();
+
     delete List;
 };
 

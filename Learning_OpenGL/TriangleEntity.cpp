@@ -32,7 +32,6 @@ void Game::Entities::TriangleEntity::OnCreate()
 
 void Game::Entities::TriangleEntity::OnDestroy()
 {
-    delete Transform;
     std::cout << "Destroying TriangleEntity" << std::endl;
 };
 

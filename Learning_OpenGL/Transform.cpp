@@ -14,10 +14,10 @@ Engine::Components::Transform::Transform()
 {
     Position = new Vector3();
     Scale = new Vector3();
-}
+};
 
 Engine::Components::Transform::~Transform()
 {
     delete Position;
     delete Scale;
-}
+};
