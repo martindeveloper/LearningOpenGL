@@ -20,10 +20,10 @@ namespace Game {
 namespace Entities {
     class TriangleEntity : public Engine::Entity {
     public:
-        void virtual OnCreate();
-        void virtual OnUpdate(int delta);
-        void virtual OnDraw(Engine::GLOptions* options);
-        void virtual OnDestroy();
+        void OnCreate() override;
+        void OnUpdate(int delta) override;
+        void OnDraw(Engine::GLOptions* options) override;
+        void OnDestroy() override;
 
     private:
         GLfloat* VertexData;
