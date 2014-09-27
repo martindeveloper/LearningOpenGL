@@ -30,6 +30,6 @@ void Engine::Entity::OnUpdate(int delta)
 {
 }
 
-void Engine::Entity::OnDraw(GLuint vertexBuffer)
+void Engine::Entity::OnDraw(GLOptions* options)
 {
 }

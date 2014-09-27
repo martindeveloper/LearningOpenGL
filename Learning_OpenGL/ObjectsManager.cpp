@@ -53,10 +53,10 @@ void Engine::ObjectsManager::DispatchUpdateEvent(int delta)
     }
 };
 
-void Engine::ObjectsManager::DispatchDrawEvent(GLuint vertexBuffer)
+void Engine::ObjectsManager::DispatchDrawEvent(GLOptions* options)
 {
     for (int i = 0; i < List->size(); i++) {
         Entity* entity = List->at(i);
-        entity->OnDraw(vertexBuffer);
+        entity->OnDraw(options);
     }
 };

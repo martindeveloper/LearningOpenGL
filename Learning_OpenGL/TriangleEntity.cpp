@@ -13,6 +13,8 @@ void Game::Entities::TriangleEntity::OnCreate()
     // TODO: Debug pipeline
     std::cout << "Creating TriangleEntity" << std::endl;
 
+    VertexData = new GLfloat[9];
+
     VertexData[0] = -1.0f;
     VertexData[1] = -1.0f;
     VertexData[2] = 0.0f;
@@ -32,6 +34,8 @@ void Game::Entities::TriangleEntity::OnCreate()
 
 void Game::Entities::TriangleEntity::OnDestroy()
 {
+    delete VertexData;
+
     std::cout << "Destroying TriangleEntity" << std::endl;
 };
 
@@ -39,13 +43,16 @@ void Game::Entities::TriangleEntity::OnUpdate(int delta) {
     //std::cout << "Updating TriangleEntity with delta " << delta << std::endl;
 };
 
-void Game::Entities::TriangleEntity::OnDraw(GLuint vertexBuffer)
+void Game::Entities::TriangleEntity::OnDraw(Engine::GLOptions* options)
 {
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferSubData(GL_ARRAY_BUFFER, NULL, sizeof(VertexData), &VertexData);
+    glBindVertexArray(options->VertexArrayID);
+    glBindBuffer(GL_ARRAY_BUFFER, options->VertexBuffer);
+
+    glBufferSubData(GL_ARRAY_BUFFER, NULL, sizeof(GLfloat) * 9, VertexData);
 
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, options->VertexBuffer);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
     glUseProgram(Shader->GetProgramID());
     glDrawArrays(GL_TRIANGLES, 0, 3);

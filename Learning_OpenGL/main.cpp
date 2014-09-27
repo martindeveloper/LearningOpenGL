@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     options->Width = 640;
     options->Height = 480;
 
-    options->Title = new std::string("Testing");
+    options->Title = new std::string("GL Learning");
 
     Engine::ObjectsManager* manager = new Engine::ObjectsManager();
 

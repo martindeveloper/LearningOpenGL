@@ -1,8 +1,8 @@
 #version 410 core
 
-out vec3 color;
+out vec4 color;
 
-void main()
+void main ()
 {
-    color = vec3(1, 0, 0);
+    color = vec4(0.5f, 0.1f, 0.5f, 0.8f);
 }

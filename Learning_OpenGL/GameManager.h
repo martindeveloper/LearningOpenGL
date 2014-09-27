@@ -12,6 +12,7 @@
 #include "Headers.h"
 #include "ObjectsManager.h"
 #include "WindowOptions.h"
+#include "GLOptions.h"
 
 namespace Engine {
 class GameManager {
@@ -26,6 +27,8 @@ private:
     const float VertexBufferSize = 128 * 1000 * 1000;
     GLuint VertexBuffer = 0;
     GLuint VertexArrayID;
+
+    GLOptions* DrawOptions;
 
     void WriteError(char* extra);
     bool IsUpdateKillPending = false;

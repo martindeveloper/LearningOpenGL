@@ -11,15 +11,18 @@
 Engine::GameManager::GameManager(void)
 {
     LastError = new std::string("");
+    DrawOptions = new GLOptions();
 };
 
 Engine::GameManager::~GameManager()
 {
+    SDL_GL_DeleteContext(Context);
     SDL_Quit();
 
     delete Options;
     delete GameObjectsManager;
     delete LastError;
+    delete DrawOptions;
 }
 
 void Engine::GameManager::SetObjectsManager(Engine::ObjectsManager* manager)
@@ -74,19 +77,31 @@ bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
     Context = SDL_GL_CreateContext(Window);
+
+    SDL_GL_MakeCurrent(Window, Context);
 
     return true;
 };
 
 void Engine::GameManager::CreateBuffers()
 {
+    // Vertex array
+    glGenVertexArrays(1, &VertexArrayID);
+    glBindVertexArray(VertexArrayID);
+
     // Vertex buffer
     glGenBuffers(1, &VertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, VertexBufferSize, NULL, GL_DYNAMIC_DRAW);
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    DrawOptions->VertexArrayID = VertexArrayID;
+    DrawOptions->VertexBuffer = VertexBuffer;
 }
 
 void Engine::GameManager::StartUpdateLoop()
@@ -94,6 +109,10 @@ void Engine::GameManager::StartUpdateLoop()
     IsUpdateKillPending = false;
 
     GameObjectsManager->DispatchCreateEvent();
+
+    // Enable alpha channel
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
 
     while (!IsUpdateKillPending) {
         SDL_Event event;
@@ -109,8 +128,9 @@ void Engine::GameManager::StartUpdateLoop()
             }
         }
 
-        glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
@@ -126,7 +146,7 @@ void Engine::GameManager::StartUpdateLoop()
         GameObjectsManager->DispatchUpdateEvent(delta);
 
         //TODO fixed update
-        GameObjectsManager->DispatchDrawEvent(VertexBuffer);
+        GameObjectsManager->DispatchDrawEvent(DrawOptions);
 
         SDL_GL_SwapWindow(Window);
     }

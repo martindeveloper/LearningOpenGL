@@ -24,7 +24,8 @@
 #endif
 
 #ifdef __APPLE__
-#include <OpenGL/OpenGL.h>
+#include <OpenGL/gl3.h>
+#include <OpenGL/gl3ext.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #endif

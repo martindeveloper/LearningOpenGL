@@ -11,6 +11,7 @@
 
 #include "Headers.h"
 #include "Entity.h"
+#include "GLOptions.h"
 
 namespace Engine {
 class ObjectsManager {
@@ -23,7 +24,7 @@ public:
     void Add(Entity* entity);
     void RemoveAll();
     void DispatchUpdateEvent(int delta);
-    void DispatchDrawEvent(GLuint vertexBuffer);
+    void DispatchDrawEvent(GLOptions* options);
     void DispatchCreateEvent();
 };
 }

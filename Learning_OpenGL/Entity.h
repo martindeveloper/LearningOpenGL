@@ -11,6 +11,7 @@
 
 #include "Headers.h"
 #include "Transform.h"
+#include "GLOptions.h"
 
 namespace Engine {
 class Entity {
@@ -21,7 +22,7 @@ public:
     ~Entity();
     void virtual OnCreate();
     void virtual OnUpdate(int delta);
-    void virtual OnDraw(GLuint vertexBuffer);
+    void virtual OnDraw(GLOptions* options);
     void virtual OnDestroy();
 };
 }

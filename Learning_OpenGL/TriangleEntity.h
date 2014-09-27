@@ -13,6 +13,7 @@
 #include "Entity.h"
 #include "Vector3.h"
 #include "Shader.h"
+#include "GLOptions.h"
 
 namespace Game {
 
@@ -21,11 +22,11 @@ namespace Entities {
     public:
         void virtual OnCreate();
         void virtual OnUpdate(int delta);
-        void virtual OnDraw(GLuint vertexBuffer);
+        void virtual OnDraw(Engine::GLOptions* options);
         void virtual OnDestroy();
 
     private:
-        GLfloat VertexData[9] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        GLfloat* VertexData;
         Engine::Shader* Shader;
     };
 }

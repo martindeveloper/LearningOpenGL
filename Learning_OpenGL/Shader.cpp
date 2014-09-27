@@ -25,9 +25,11 @@ GLint Engine::Shader::CheckCompilation(GLuint CompiledShader)
 
     glGetShaderiv(CompiledShader, GL_COMPILE_STATUS, &CompileResult);
     glGetShaderiv(CompiledShader, GL_INFO_LOG_LENGTH, &LogLength);
-    std::vector<char> ShaderError(LogLength);
-    glGetShaderInfoLog(CompiledShader, LogLength, NULL, &ShaderError[0]);
-    std::cout << "Check error: " << &ShaderError[0] << std::endl;
+    char* ShaderError = new char[LogLength];
+    glGetShaderInfoLog(CompiledShader, LogLength, NULL, ShaderError);
+    std::cout << "Check error: " << (char*)ShaderError << std::endl;
+
+    delete ShaderError;
 
     return CompileResult;
 }

@@ -2,8 +2,7 @@
 
 layout(location = 0) in vec3 vertexPositionModelSpace;
 
-void main()
+void main ()
 {
-    gl_Position.xyz = vertexPositionModelSpace;
-    gl_Position.w = 1.0;
+    gl_Position = vec4(vertexPositionModelSpace, 1.0f);
 }
