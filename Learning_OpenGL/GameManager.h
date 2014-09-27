@@ -23,7 +23,7 @@ private:
     std::string* LastError;
 
     //Buffers
-    const float VertexBufferSize = 128 * 100 * 100;
+    const float VertexBufferSize = 128 * 1000 * 1000;
     GLuint VertexBuffer = 0;
     GLuint VertexArrayID;
 

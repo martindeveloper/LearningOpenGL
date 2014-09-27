@@ -128,7 +128,7 @@ void Engine::GameManager::StartUpdateLoop()
         //TODO fixed update
         GameObjectsManager->DispatchDrawEvent(VertexBuffer);
 
-        //SDL_GL_SwapWindow(Window);
+        SDL_GL_SwapWindow(Window);
     }
 }
 
