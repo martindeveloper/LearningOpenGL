@@ -15,6 +15,7 @@
 
 int main(int argc, char* argv[])
 {
+    //TODO use smart pointers
     Engine::WindowOptions* options = new Engine::WindowOptions();
     options->Width = 640;
     options->Height = 480;
