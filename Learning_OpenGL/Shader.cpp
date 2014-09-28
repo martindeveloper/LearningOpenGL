@@ -52,9 +52,7 @@ void Engine::Shader::Compile()
         // Check fragment shader
         std::cout << "Compiling fragment shader." << std::endl;
         this->CheckCompilation(this->FragmentShader);
-    }
 
-    if (this->DebugEnabled) {
         std::cout << "Linking program" << std::endl;
     }
 

@@ -19,6 +19,8 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include <GL/glew.h>
+#include <GL/wglew.h>
 #include <SDL.h>
 #include <SDL_opengl.h>
 #endif

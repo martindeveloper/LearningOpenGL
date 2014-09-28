@@ -84,6 +84,11 @@ bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
 
     SDL_GL_MakeCurrent(Window, Context);
 
+#ifdef _WIN32
+	glewExperimental = GL_TRUE;
+	glewInit();
+#endif
+
     return true;
 };
 

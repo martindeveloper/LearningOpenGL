@@ -46,7 +46,7 @@ void Game::Entities::TriangleEntity::OnUpdate(int delta)
     // Resize on update
     float step = 1.005f;
 
-    for (uint index = 0; index < 9; index++) {
+    for (unsigned int index = 0; index < 9; index++) {
         if ((GLfloat)VertexData[index] > 1.8f && (GLfloat)VertexData[index] < 2.0f) {
             IsIncreasing = false;
         }
