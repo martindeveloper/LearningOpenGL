@@ -19,7 +19,7 @@ public:
     Engine::Components::Transform* Transform;
 
     Entity();
-    ~Entity();
+    virtual ~Entity();
     void virtual OnCreate();
     void virtual OnUpdate(int delta);
     void virtual OnDraw(GLOptions* options);
