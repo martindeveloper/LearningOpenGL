@@ -27,4 +27,4 @@ Vector3 Vector3::operator+(const float add)
 
     // Return new instance of Vector3, immutable
     return vec;
-};
+}

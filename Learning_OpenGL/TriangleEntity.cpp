@@ -30,14 +30,14 @@ void Game::Entities::TriangleEntity::OnCreate()
     Shader = new Engine::Shader("./Shaders/TriangleEntityVertex.glsl", "./Shaders/TriangleEntityFragment.glsl");
     Shader->DebugEnabled = true;
     Shader->Compile();
-};
+}
 
 void Game::Entities::TriangleEntity::OnDestroy()
 {
     delete VertexData;
 
     std::cout << "Destroying TriangleEntity" << std::endl;
-};
+}
 
 void Game::Entities::TriangleEntity::OnUpdate(int delta)
 {
@@ -61,7 +61,7 @@ void Game::Entities::TriangleEntity::OnUpdate(int delta)
             VertexData[index] /= step;
         }
     }
-};
+}
 
 void Game::Entities::TriangleEntity::OnDraw(Engine::GLOptions* options)
 {
@@ -81,4 +81,4 @@ void Game::Entities::TriangleEntity::OnDraw(Engine::GLOptions* options)
     glDisableVertexAttribArray(0);
     glUseProgram(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-};
+}

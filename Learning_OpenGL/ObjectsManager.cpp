@@ -13,17 +13,17 @@ Engine::ObjectsManager::~ObjectsManager()
     RemoveAll();
 
     delete List;
-};
+}
 
 Engine::ObjectsManager::ObjectsManager()
 {
     List = new std::vector<Entity*>();
-};
+}
 
 void Engine::ObjectsManager::Add(Entity* entity)
 {
     List->push_back(entity);
-};
+}
 
 void Engine::ObjectsManager::RemoveAll()
 {
@@ -35,7 +35,7 @@ void Engine::ObjectsManager::RemoveAll()
     }
 
     List->clear();
-};
+}
 
 void Engine::ObjectsManager::DispatchCreateEvent()
 {
@@ -43,7 +43,7 @@ void Engine::ObjectsManager::DispatchCreateEvent()
         Entity* entity = List->at(i);
         entity->OnCreate();
     }
-};
+}
 
 void Engine::ObjectsManager::DispatchUpdateEvent(int delta)
 {
@@ -51,7 +51,7 @@ void Engine::ObjectsManager::DispatchUpdateEvent(int delta)
         Entity* entity = List->at(i);
         entity->OnUpdate(delta);
     }
-};
+}
 
 void Engine::ObjectsManager::DispatchDrawEvent(GLOptions* options)
 {
@@ -59,4 +59,4 @@ void Engine::ObjectsManager::DispatchDrawEvent(GLOptions* options)
         Entity* entity = List->at(i);
         entity->OnDraw(options);
     }
-};
+}

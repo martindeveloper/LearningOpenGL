@@ -12,7 +12,7 @@ Engine::GameManager::GameManager(void)
 {
     LastError = new std::string("");
     DrawOptions = new GLOptions();
-};
+}
 
 Engine::GameManager::~GameManager()
 {
@@ -90,7 +90,7 @@ bool Engine::GameManager::CreateWindowAndContext(WindowOptions* options)
 #endif
 
     return true;
-};
+}
 
 void Engine::GameManager::CreateBuffers()
 {

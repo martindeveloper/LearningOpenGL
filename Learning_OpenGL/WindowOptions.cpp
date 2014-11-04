@@ -11,4 +11,4 @@
 Engine::WindowOptions::~WindowOptions()
 {
     delete Title;
-};
+}
